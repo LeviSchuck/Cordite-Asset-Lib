@@ -4,6 +4,7 @@ namespace cordite {
   namespace io {
     class Resource;
     class FileSession{
+    protected:
       friend class Resource;
       Resource* parent;
       
