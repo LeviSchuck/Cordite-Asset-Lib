@@ -10,14 +10,14 @@ namespace cordite {
       File* parent;
       
     public:
-      virtual unsigned long getPos();
-      virtual unsigned long getSize();
+      virtual unsigned long getPos() = 0;
+      virtual unsigned long getSize() = 0;
       virtual void read(
 	void* buffer, 
-	const unsigned long sizeToRead);
+	const unsigned long sizeToRead) = 0;
       virtual bool seek(
 	const unsigned long Position, 
-	const bool relative = false);
+	const bool relative = false) = 0;
       
     };
   };
