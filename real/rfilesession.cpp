@@ -1,4 +1,5 @@
 #include "include/real/rfilesession.h"
+#include <iostream>
 using namespace std;
 namespace cordite {
   namespace io {
@@ -7,8 +8,12 @@ namespace cordite {
       size = 0;
     }
     RFileSession::~RFileSession(){
-      if(reader.is_open())
+      if(reader.is_open()){
 	reader.close();
+	cout << "Closing the file\n";
+      }else{
+	cout << "Reports not open\n";
+      }
     }
     long unsigned int RFileSession::getPos(){
       if(reader.is_open())

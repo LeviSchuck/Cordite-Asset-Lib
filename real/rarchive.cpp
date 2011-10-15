@@ -2,6 +2,7 @@
 #include <queue>
 #include "include/real/rarchive.h"
 #include "include/real/rresource.h"
+#include <iostream>
 namespace fs = boost::filesystem;
 namespace cordite{
   namespace io {
@@ -27,13 +28,18 @@ namespace cordite{
 	      //Ensure that we do no overrides, or, if we do, we free
 	      //The old resource pointers.
 	      std::string fileName = d->path().filename();
+	      std::cout << "Found " << fileName << "\n";
 	      bool putinset = true;
 	      if(fnames.find(fileName) != fnames.end()){
 		delete contents[fileName];
 		putinset = false;
+		std::cout << "Deleted duplicate resource for " << fileName << "\n";
 	      }
 	      std::string fullName = d->path().string();
 	      contents[fileName] = new RResource(fullName);
+	      if(putinset){
+		fnames.insert(fileName);
+	      }
 	    }
 	    
 	  }catch(...){}//I don't care to know what is wrong
@@ -46,6 +52,9 @@ namespace cordite{
 	toTraverse.pop();
       }
     }
-
+    RArchive::~RArchive(){
+      
+    }
+    
   };
 };

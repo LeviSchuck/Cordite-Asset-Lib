@@ -11,6 +11,7 @@ namespace cordite {
       
     public:
       RArchive(const std::string& path);
+      virtual ~RArchive();
     };
   };
 };
