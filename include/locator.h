@@ -27,6 +27,7 @@ namespace cordite {
 	const std::string fname,
 	const int min,
 	const int max);
+      void addArchive(Archive* arch, const int priority);
     };
   };
 };
