@@ -10,9 +10,9 @@ namespace cordite {
     RFileSession::~RFileSession(){
       if(reader.is_open()){
 	reader.close();
-	cout << "Closing the file\n";
+	//cout << "Closing the file\n";
       }else{
-	cout << "Reports not open\n";
+	//cout << "Reports not open\n";
       }
     }
     long unsigned int RFileSession::getPos(){

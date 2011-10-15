@@ -13,7 +13,7 @@ namespace cordite {
 	return;
       fname = p.filename();
       fullpath = filepath;
-      std::cout << "Preserving " << fullpath << " as " << fname << "\n";
+      //std::cout << "Preserving " << fullpath << " as " << fname << "\n";
     }
     RResource::~RResource(){
     }
