@@ -19,7 +19,7 @@ namespace cordite {
       virtual bool seek(
 	const long Position,
 	const bool relative = false) = 0;
-      
+      virtual ~FileSession(){};
     };
   };
 };
