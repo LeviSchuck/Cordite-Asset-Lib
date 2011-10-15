@@ -15,11 +15,11 @@ if(USE_REAL)
 endif(USE_REAL)
 
 if(USE_SQLITE)
-  
+  add_definitions(-DUSE_SQLITE)
 endif(USE_SQLITE)
 
 if(USE_ZLIB)
-  
+  add_definitions(-DUSE_ZLIB)
 endif(USE_ZLIB)
 
 add_library(cassetlib ${LIB_PARTS})
