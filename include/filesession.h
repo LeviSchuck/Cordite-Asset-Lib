@@ -3,11 +3,9 @@
 namespace cordite {
   namespace io {
     class Resource;
-    class File;
     class FileSession{
       friend class Resource;
-      friend class File;
-      File* parent;
+      Resource* parent;
       
     public:
       virtual unsigned long getPos() = 0;
