@@ -15,7 +15,7 @@ namespace cordite {
       friend class Archive;
       ResorceType type;
       std::string fname;
-      
+      std::string fullpath;
     public:
 	
 	virtual ~Resource();
