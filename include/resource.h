@@ -18,9 +18,8 @@ namespace cordite {
       std::string fullpath;
     public:
 	
-	virtual ~Resource();
 	inline const std::string fileName() const {return fname;};
-	virtual FileSession* session();
+	virtual FileSession* session() = 0;
     };
   };
 };
