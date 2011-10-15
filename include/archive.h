@@ -7,10 +7,11 @@ namespace cordite {
   namespace io {
     class Archive{
     protected:
-      std::map<std::string, Resource> contents;
+      std::map<std::string, Resource*> contents;
     public:
       //Resource* getResource(const std::string fname) const;
-      Resource& operator[] (const std::string fname) const;
+      Resource* operator[] (const std::string fname);
+      virtual ~Archive();
     }; 
   };
 };
