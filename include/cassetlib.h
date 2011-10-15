@@ -2,3 +2,8 @@
 #include "filesession.h"
 #include "locator.h"
 #include "resource.h"
+#if defined(USE_REAL)
+#include "include/real/rarchive.h"
+#include "include/real/rresource.h"
+#include "include/real/rfilesession.h"
+#endif //USE_REAL
