@@ -22,7 +22,7 @@ namespace cordite {
     public:
       Locator();
       virtual ~Locator();
-      Resource& operator[] (const std::string fname);
+      Resource* operator[] (const std::string fname);
       Resource* withinPriority(
 	const std::string fname,
 	const int min,
