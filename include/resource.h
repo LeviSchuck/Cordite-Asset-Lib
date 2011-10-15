@@ -8,21 +8,19 @@ namespace cordite {
       RT_DB,
       RT_COMPRESSED
     };
-    class File;
+    class FileSession;
     class Archive;
     class Resource{
     protected:
       friend class Archive;
       ResorceType type;
       std::string fname;
-      File* fpointer;
-      Resource();
       
     public:
 	
 	virtual ~Resource();
 	inline const std::string fileName() const {return fname;};
-	virtual File* file() const;
+	virtual FileSession* session();
     };
   };
 };
