@@ -7,7 +7,9 @@ namespace cordite {
     class SArchive;
     class SResource: public Resource {
       friend class SArchive;
-      SResource(std::string& filepath);
+      SResource(std::string& fname, long int& rowid, std::string& dbpath);
+      long int _rowid;
+      std::string _dbpath;
     public:
       virtual ~SResource();
       FileSession* session();

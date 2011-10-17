@@ -10,12 +10,14 @@ SET(LIB_PARTS locator.cpp archive.cpp)
 SET(LINK_IN)
 if(USE_REAL)
   LIST(APPEND LIB_PARTS real/rarchive.cpp real/rresource.cpp real/rfilesession.cpp)
-  LIST(APPEND LINK_IN boost_filesystem)
+  SET(USE_BOOSTFS true)
   add_definitions(-DUSE_REAL)
 endif(USE_REAL)
 
 if(USE_SQLITE)
   add_definitions(-DUSE_SQLITE)
+  SET(USE_BOOSTFS true)
+  LIST(APPEND LIB_PARTS sqlite/sarchive.cpp sqlite/sfilesession.cpp sqlite/sresource.cpp)
 endif(USE_SQLITE)
 
 if(USE_ZLIB)
@@ -23,7 +25,9 @@ if(USE_ZLIB)
 endif(USE_ZLIB)
 
 add_library(cassetlib ${LIB_PARTS})
-
+if(USE_BOOSTFS)
+LIST(APPEND LINK_IN boost_filesystem)
+endif(USE_BOOSTFS)
 if(LINK_IN)
 target_link_libraries(cassetlib
 ${LINK_IN}

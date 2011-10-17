@@ -2,15 +2,18 @@
 #define SFILESESSION_H
 #include <string>
 #include "include/filesession.h"
+#include <sqlite3.h>
 namespace cordite {
   namespace io {
     class SResource;
     class SFileSession: public FileSession{
       friend class SResource;
     protected:
-      SFileSession(const std::string& path);
+      SFileSession();
       unsigned long size;
-      void* db;
+      sqlite3* db;
+      sqlite3_blob* b;
+      long int pos;
     public:
 	
 	virtual ~SFileSession();
