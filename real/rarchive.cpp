@@ -1,4 +1,5 @@
-#include <boost/filesystem.hpp>
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
 #include <queue>
 #include "include/real/rarchive.h"
 #include "include/real/rresource.h"
