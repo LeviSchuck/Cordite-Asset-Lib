@@ -1,0 +1,2 @@
+add_executable(folder2sqlite main.cpp)
+target_link_libraries(folder2sqlite boost_filesystem sqlite3)

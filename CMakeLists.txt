@@ -39,3 +39,8 @@ target_link_libraries(cassetlibTest
 cassetlib
 )
 ENDIF(BUILD_TEST_APP)
+
+SET(BUILD_FOLDER_TO_SQLITE ON CACHE BOOL ON)
+IF(BUILD_FOLDER_TO_SQLITE)
+  add_subdirectory("folder2sqlite")
+ENDIF(BUILD_FOLDER_TO_SQLITE)
