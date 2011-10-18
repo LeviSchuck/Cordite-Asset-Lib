@@ -6,32 +6,32 @@ using namespace cordite::io;
 using namespace std;
 int main(int argc, char **argv) {
     
-    Locator l;
+    
     {
-      cout << "Starting the Real File implementation tests\n\n";
+      Locator l;
+      cout << "Starting the Real File implementation tests\n";
       RArchive* ra = new RArchive("tests/test1");
       l.addArchive(ra,1);
       Resource* r = l["awesome.txt"];
       if(r){
-	cout << "awesome.txt was found.\n";
-      }else{
-	cout << "awesome.txt was NOT found.\n";
-      }
-      {
-	FileSession* fs = r->session();
-	void* data = malloc(fs->getSize());
-	fs->read((char*)data, fs->getSize());
-	stringstream ss;
-	ss.write((char*)data,fs->getSize());
-	free(data);
-	delete fs;
-	if(ss.str().compare("I am awesome.") == 0){
-	  cout << "Override and collection test\tpassed.\n";
-	}else{
-	  cout << "Override and collection\t\tDID NOT pass.\n";
-	  cout << "Expected \"I am awesome.\" but got \""
-	      << ss.str() << "\"\n";
+	{
+	  FileSession* fs = r->session();
+	  void* data = malloc(fs->getSize());
+	  fs->read((char*)data, fs->getSize());
+	  stringstream ss;
+	  ss.write((char*)data,fs->getSize());
+	  free(data);
+	  delete fs;
+	  if(ss.str().compare("I am awesome.") == 0){
+	    cout << "Override and collection test\tpassed.\n";
+	  }else{
+	    cout << "Override and collection\t\tDID NOT pass.\n";
+	    cout << "Expected \"I am awesome.\" but got \""
+		<< ss.str() << "\"\n";
+	  }
 	}
+      }else{
+	cout << "File Exist\t\t\tDID NOT pass.";
       }
       l.addArchive(new RArchive("tests/test2"),3);
       //Now, lets try to add another folder
@@ -86,6 +86,30 @@ int main(int argc, char **argv) {
 	      << ss.str() << "\"\n";
 	}
       }
+    }
+    {
+      cout << "\nStarting the SQLite extension tests\n";
+      Locator l;
+      SArchive* s = new SArchive("tests/test.sqlite");
+      l.addArchive(s, 1);
+      Resource* r = l["awesome.txt"];
+	if(r){
+	  cout << "File Exist\t\t\tpassed.\n";
+	  FileSession* fs = r->session();
+	  void* data = malloc(fs->getSize());
+	  fs->read((char*)data, fs->getSize());
+	  stringstream ss;
+	  ss.write((char*)data,fs->getSize());
+	  free(data);
+	  delete fs;
+	  if(ss.str().compare("I am awesome.") == 0){
+	    cout << "File Contents\t\t\tpassed.\n";
+	  }else{
+	    cout << "File Contents\t\t\t DID NOT\n";
+	  }
+	}else{
+	  cout << "File Exist\t\t\tDID NOT pass.\n";
+	}
     }
     
     

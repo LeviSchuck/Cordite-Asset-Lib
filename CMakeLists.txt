@@ -18,6 +18,7 @@ if(USE_SQLITE)
   add_definitions(-DUSE_SQLITE)
   SET(USE_BOOSTFS true)
   LIST(APPEND LIB_PARTS sqlite/sarchive.cpp sqlite/sfilesession.cpp sqlite/sresource.cpp)
+  LIST(APPEND LINK_IN sqlite3)
 endif(USE_SQLITE)
 
 if(USE_ZLIB)
