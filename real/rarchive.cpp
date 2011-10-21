@@ -4,6 +4,8 @@
 #include "include/real/rarchive.h"
 #include "include/real/rresource.h"
 #include <iostream>
+#include <map>
+
 namespace fs = boost::filesystem;
 namespace cordite{
   namespace io {
@@ -55,7 +57,12 @@ namespace cordite{
       }
     }
     RArchive::~RArchive(){
-      
+      std::map<std::string,Resource*>::iterator it;
+      for(it = contents.begin(); it != contents.end(); it++){
+	RResource* rsc = (RResource*)((*it).second);
+	if(rsc)
+	  delete rsc;
+      }
     }
     
   };

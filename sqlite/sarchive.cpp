@@ -8,7 +8,7 @@ namespace fs = boost::filesystem;
 using namespace std;
 namespace cordite{
   namespace io {
-    SArchive::SArchive(const std::string& path){
+    SArchive::SArchive(const string &path){
       //Do archiving;
       if(fs::is_regular_file(path)){
 
@@ -44,6 +44,12 @@ namespace cordite{
     
     SArchive::~SArchive(){
       //clean up
+      map<string,Resource*>::iterator it;
+      for(it = contents.begin(); it != contents.end(); it++){
+	SResource* rsc = (SResource*)((*it).second);
+	if(rsc)
+	  delete rsc;
+      }
     }
     
   };
