@@ -6,6 +6,7 @@ include_directories("${PROJECT_SOURCE_DIR}")
 SET(USE_REAL ON CACHE BOOL ON)
 SET(USE_SQLITE ON CACHE BOOL ON)
 SET(USE_ZLIB ON CACHE BOOL ON)
+SET(USE_TAR ON CACHE BOOL ON)
 SET(LIB_PARTS locator.cpp archive.cpp)
 SET(LINK_IN)
 if(USE_REAL)
@@ -25,6 +26,11 @@ if(USE_ZLIB)
   add_definitions(-DUSE_ZLIB)
 endif(USE_ZLIB)
 
+if(USE_TAR)
+  add_definitions(-DUSE_TAR)
+  LIST(APPEND LIB_PARTS tar/tarchive.cpp tar/tresource.cpp tar/tfilesession.cpp)
+endif(USE_TAR)
+
 add_library(cassetlib ${LIB_PARTS})
 if(USE_BOOSTFS)
 LIST(APPEND LINK_IN boost_filesystem)
@@ -34,7 +40,6 @@ target_link_libraries(cassetlib
 ${LINK_IN}
 )
 endif(LINK_IN)
-
 
 SET(BUILD_TEST_APP ON CACHE BOOL ON)
 IF(BUILD_TEST_APP)

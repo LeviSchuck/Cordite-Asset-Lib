@@ -14,6 +14,7 @@
 #endif //USE_SQLITE
 #if defined(USE_ZLIB)
 #include "include/zlib/zarchive.h"
-//#include "include/zlib/zresource.h"
-//#include "include/zlib/zfilesession.h"
+#endif //USE_ZLIB
+#if defined(USE_TAR)
+#include "include/tar/tarchive.h"
 #endif //USE_ZLIB
