@@ -1,4 +1,5 @@
 #include "include/archive.h"
+#include <iostream>
 using namespace std;
 namespace cordite {
   namespace io {
@@ -6,13 +7,8 @@ namespace cordite {
       return contents[fname];
     }
     Archive::~Archive(){
-      map<string,Resource*>::iterator it;
-      for(it = contents.begin(); it != contents.end(); it++){
-	Resource* rsc = (*it).second;
-	if(rsc)
-	  delete rsc;
-      }
-      contents.clear();
+      //std::cout << "Base Archive destruction\n";
+
     }
   };
 };
