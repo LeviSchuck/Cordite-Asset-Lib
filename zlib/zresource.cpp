@@ -1,16 +1,16 @@
-#include "include/sqlite/sresource.h"
-#include "include/sqlite/sfilesession.h"
+#include "include/zlib/zresource.h"
+#include "include/zlib/zfilesession.h"
 #include <iostream>
 namespace cordite {
   namespace io {
-    SResource::SResource(std::string& filepath){
+    ZResource::ZResource(std::string& filepath){
       type = cordite::io::RT_DB;
 
     }
-    SResource::~SResource(){
+    ZResource::~ZResource(){
     }
-    FileSession* SResource::session(){
-      SFileSession* nfile = 0;
+    FileSession* ZResource::session(){
+      ZFileSession* nfile = 0;
 
       return nfile;
     }
