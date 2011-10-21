@@ -20,6 +20,7 @@ namespace cordite {
 	
 	inline const std::string fileName() const {return fname;};
 	virtual FileSession* session() = 0;
+	~Resource(){}
     };
   };
 };
