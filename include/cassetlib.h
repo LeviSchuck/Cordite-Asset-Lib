@@ -3,18 +3,14 @@
 #include "locator.h"
 #include "resource.h"
 #if defined(USE_REAL)
-#include "include/real/rarchive.h"
-//#include "include/real/rresource.h"
-//#include "include/real/rfilesession.h"
+  #include "include/real/rarchive.h"
 #endif //USE_REAL
 #if defined(USE_SQLITE)
-#include "include/sqlite/sarchive.h"
-//#include "include/sqlite/sresource.h"
-//#include "include/sqlite/sfilesession.h"
+  #include "include/sqlite/sarchive.h"
 #endif //USE_SQLITE
 #if defined(USE_ZLIB)
-#include "include/zlib/zarchive.h"
+  #include "include/tarc/tcarchive.h"
 #endif //USE_ZLIB
 #if defined(USE_TAR)
-#include "include/tar/tarchive.h"
+  #include "include/tar/tarchive.h"
 #endif //USE_ZLIB
