@@ -1,19 +1,19 @@
-#ifndef ZRESOURCE_H
-#define ZRESOURCE_H
+#ifndef TCRESOURCE_H
+#define TCRESOURCE_H
 #include "include/resource.h"
 #include <string>
 namespace cordite {
   namespace io {
-    class ZArchive;
-    class ZResource: public Resource {
-      friend class ZArchive;
-      ZResource(std::string& filepath);
+    class TCArchive;
+    class TCResource: public Resource {
+      friend class TCArchive;
+      TCResource(std::string& filepath);
     public:
-      virtual ~ZResource();
+      virtual ~TCResource();
       FileSession* session();
     };
   };
 };
 
 
-#endif // ZRESOURCE_H
+#endif // TCRESOURCE_H

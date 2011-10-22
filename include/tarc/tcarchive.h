@@ -1,17 +1,17 @@
-#ifndef ZARCHIVE_H
-#define ZARCHIVE_H
+#ifndef TCARCHIVE_H
+#define TCARCHIVE_H
 #include <string>
 #include "include/archive.h"
 
 namespace cordite {
   namespace io {
-    class ZArchive: public Archive{
+    class TCArchive: public Archive{
     protected:
     public:
-      ZArchive(const std::string& path);
-      virtual ~ZArchive();
+      TCArchive(const std::string& path);
+      virtual ~TCArchive();
     };
   };
 };
 
-#endif // ZARCHIVE_H
+#endif // TCARCHIVE_H

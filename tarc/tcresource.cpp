@@ -1,16 +1,16 @@
-#include "include/zlib/zresource.h"
-#include "include/zlib/zfilesession.h"
+#include "include/tarc/tcresource.h"
+#include "include/tarc/tcfilesession.h"
 #include <iostream>
 namespace cordite {
   namespace io {
-    ZResource::ZResource(std::string& filepath){
-      type = cordite::io::RT_DB;
+    TCResource::TCResource(std::string& filepath){
+      type = cordite::io::RT_COMPRESSED;
 
     }
-    ZResource::~ZResource(){
+    TCResource::~TCResource(){
     }
-    FileSession* ZResource::session(){
-      ZFileSession* nfile = 0;
+    FileSession* TCResource::session(){
+      TCFileSession* nfile = 0;
 
       return nfile;
     }

@@ -1,14 +1,14 @@
-#include "include/zlib/zarchive.h"
-#include "include/zlib/zresource.h"
+#include "include/tarc/tcarchive.h"
+#include "include/tarc/tcresource.h"
 
 //namespace fs = boost::filesystem;
 namespace cordite{
   namespace io {
-    ZArchive::ZArchive(const std::string& path){
+    TCArchive::TCArchive(const std::string& path){
       //Do archiving;
     }
     
-    ZArchive::~ZArchive(){
+    TCArchive::~TCArchive(){
       //clean up
     }
     

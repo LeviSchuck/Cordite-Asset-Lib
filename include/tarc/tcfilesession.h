@@ -1,19 +1,18 @@
-#ifndef ZFILESESSION_H
-#define ZFILESESSION_H
+#ifndef TCFILESESSION_H
+#define TCFILESESSION_H
 #include <string>
 #include "include/filesession.h"
 namespace cordite {
   namespace io {
-    class ZResource;
-    class ZFileSession: public FileSession{
-      friend class ZResource;
+    class TCResource;
+    class TCFileSession: public FileSession{
+      friend class TCResource;
     protected:
-      ZFileSession(const std::string& path);
+      TCFileSession(const std::string& path);
       unsigned long size;
-      void* db;
     public:
 	
-	virtual ~ZFileSession();
+	virtual ~TCFileSession();
 	unsigned long getPos();
 	unsigned long getSize();
 	void read(
