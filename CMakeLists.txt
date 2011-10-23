@@ -22,14 +22,18 @@ if(USE_SQLITE)
   LIST(APPEND LINK_IN sqlite3)
 endif(USE_SQLITE)
 
-if(USE_ZLIB)
-  add_definitions(-DUSE_ZLIB)
-endif(USE_ZLIB)
-
 if(USE_TAR)
   add_definitions(-DUSE_TAR)
   LIST(APPEND LIB_PARTS tar/tarchive.cpp tar/tresource.cpp tar/tfilesession.cpp)
 endif(USE_TAR)
+
+if(USE_ZLIB)
+  add_subdirectory(zlib)
+  LIST(APPEND LINK_IN zlib)
+  add_definitions(-DUSE_ZLIB)
+  LIST(APPEND LIB_PARTS tarc/tcarchive.cpp tarc/tcresource.cpp tarc/tcfilesession.cpp)
+endif(USE_ZLIB)
+
 
 add_library(cassetlib ${LIB_PARTS})
 if(USE_BOOSTFS)

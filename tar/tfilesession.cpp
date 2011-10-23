@@ -8,7 +8,7 @@ namespace cordite {
 	const unsigned long size){
       _size = size;
       _offset = offset;
-      reader.open(path.c_str());
+      reader.open(path.c_str(), ios::binary | ios::in);
       reader.seekg(offset);
       pos = reader.tellg();
     }

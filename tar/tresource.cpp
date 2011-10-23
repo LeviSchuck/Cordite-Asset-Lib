@@ -11,7 +11,9 @@ namespace cordite {
 	_seekpos(seekpos),
 	_tarname(tarname){
       type = cordite::io::RT_COMPRESSED;//Not really, but close.
-      
+      //std::cout << info.filename << "\t" <<
+      //info.size << "\t" << _seekpos << "\t" <<
+      //tarname << "\n";
     }
     TResource::~TResource(){
     }

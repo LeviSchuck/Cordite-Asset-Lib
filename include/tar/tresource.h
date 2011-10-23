@@ -7,8 +7,10 @@
 namespace cordite {
   namespace io {
     class TArchive;
+    class TCArchive;
     class TResource: public Resource {
       friend class TArchive;
+      friend class TCArchive;
       TResource(
 	const std::string &tarname,
 	const tar_info info,

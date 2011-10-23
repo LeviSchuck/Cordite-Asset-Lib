@@ -2,14 +2,18 @@
 #define TCFILESESSION_H
 #include <string>
 #include "include/filesession.h"
+#include "zlib/zlib.h"
+struct archive_info;
 namespace cordite {
   namespace io {
     class TCResource;
     class TCFileSession: public FileSession{
       friend class TCResource;
     protected:
-      TCFileSession(const std::string& path);
+      TCFileSession(const archive_info& ai);
       unsigned long size;
+      const archive_info &_ai;
+      gzFile file;
     public:
 	
 	virtual ~TCFileSession();

@@ -141,6 +141,33 @@ int main(int argc, char **argv) {
 	  cout << "File Exist\t\t\tDID NOT pass.\n";
 	}
     }
+    {
+      cout << "\nStarting the compressed Tar extension tests\n";
+      Locator l;
+      TCArchive* t = new TCArchive("tests/test.tar.gz");
+      //delete t;
+      l.addArchive(t, 1);
+      Resource* r = l["another.txt"];
+	if(r){
+	  cout << "File Exist\t\t\tpassed.\n";
+	  FileSession* fs = r->session();
+	  cout << "File size is " << fs->getSize() << "\n";
+	  void* data = malloc(fs->getSize());
+	  fs->read((char*)data, fs->getSize());
+	  stringstream ss;
+	  ss.write((char*)data,fs->getSize());
+	  free(data);
+	  delete fs;
+	  if(ss.str().compare("Some content here.") == 0){
+	    cout << "File Contents\t\t\tpassed.\n";
+	  }else{
+	    cout << "File Contents\t\t\t DID NOT\n";
+	    cout << "\tResult was \"" << ss.str() << "\"\n";
+	  }
+	}else{
+	  cout << "File Exist\t\t\tDID NOT pass.\n";
+	}
+    }
     
     return 0;
 }

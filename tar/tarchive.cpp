@@ -9,7 +9,7 @@ using namespace std;
 namespace cordite{
   namespace io {
     TArchive::TArchive(const std::string& path){
-      ifstream reader(path.c_str(),ifstream::in);
+      ifstream reader(path.c_str(),ifstream::in | ios::binary);
       int zeroevents = 0;
       while(reader.good() && zeroevents < 2){
 	//cout << "Currently at " << reader.tellg() << "\n";
